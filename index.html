@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Um presente para Geicci 💗</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Georgia,"Times New Roman",serif;background:#090611;color:#fff}
+body{overflow-x:hidden}
+.screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;position:relative;overflow:hidden}
+.bg{position:absolute;inset:0;background:
+ radial-gradient(circle at 20% 20%,rgba(255,130,190,.18),transparent 28%),
+ radial-gradient(circle at 80% 70%,rgba(166,117,255,.18),transparent 30%),
+ linear-gradient(145deg,#090611,#241027 55%,#10091b)}
+.stars,.hearts{position:absolute;inset:0;pointer-events:none}
+.star{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;opacity:.7;animation:twinkle 2.5s infinite alternate}
+@keyframes twinkle{to{opacity:.15;transform:scale(.4)}}
+.card{position:relative;z-index:2;width:min(460px,100%);text-align:center}
+h1{font-size:clamp(28px,8vw,46px);margin:0 0 8px}
+.subtitle{opacity:.85;font-size:18px;margin-bottom:28px}
+.gift-area{height:330px;display:flex;align-items:center;justify-content:center;perspective:900px}
+.gift{width:245px;height:180px;position:relative;cursor:pointer;filter:drop-shadow(0 25px 30px rgba(0,0,0,.45));transition:transform .25s}
+.gift:hover{transform:translateY(-7px) scale(1.02)}
+.box{position:absolute;left:18px;right:18px;bottom:0;height:145px;border-radius:8px;background:linear-gradient(135deg,#17131f,#2b1733);border:2px solid rgba(255,180,220,.65)}
+.box:after{content:"";position:absolute;left:50%;top:0;bottom:0;width:35px;transform:translateX(-50%);background:linear-gradient(90deg,#d86aa2,#f5a5ca,#b94b86)}
+.lid{position:absolute;left:0;right:0;top:20px;height:58px;border-radius:9px;background:linear-gradient(135deg,#251528,#4b2149);border:2px solid rgba(255,180,220,.7);transform-origin:10% 90%;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.lid:after{content:"";position:absolute;left:50%;top:0;bottom:0;width:35px;transform:translateX(-50%);background:linear-gradient(90deg,#d86aa2,#f5a5ca,#b94b86)}
+.ribbon{position:absolute;left:50%;top:-20px;transform:translateX(-50%);width:65px;height:35px}
+.ribbon:before,.ribbon:after{content:"";position:absolute;width:42px;height:28px;border:5px solid #f19bc4;border-radius:50% 50% 45% 10%}
+.ribbon:before{right:31px;transform:rotate(22deg)}
+.ribbon:after{left:31px;transform:scaleX(-1) rotate(22deg)}
+.tag{position:absolute;z-index:3;right:10px;top:82px;background:#fff1f7;color:#5a2047;padding:8px 12px;border-radius:5px;font-size:15px;transform:rotate(4deg);box-shadow:0 4px 12px #0006}
+.gift.open .lid{transform:translateY(-95px) rotate(-12deg)}
+.gift.open{animation:pop 1s ease}
+@keyframes pop{50%{transform:scale(1.06)}}
+.tap{display:inline-block;margin-top:4px;padding:13px 23px;border:1px solid #ffb5d8;border-radius:999px;background:#ffffff12;color:#fff;font-size:16px;backdrop-filter:blur(8px)}
+.hidden{display:none!important}
+.message{margin:18px auto 0;background:rgba(255,255,255,.08);border:1px solid rgba(255,190,220,.25);border-radius:22px;padding:24px;backdrop-filter:blur(12px);animation:rise .8s both}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.message p{font-size:20px;line-height:1.55;margin:10px 0}
+.tulips{font-size:64px;letter-spacing:-10px;margin:8px 0 18px;animation:sway 3s ease-in-out infinite}
+@keyframes sway{50%{transform:rotate(2deg) scale(1.03)}}
+.next{margin-top:18px;padding:12px 22px;border:0;border-radius:999px;background:#f29ac3;color:#321126;font-weight:bold;font-size:16px;cursor:pointer}
+.progress{font-size:12px;opacity:.6;margin-top:15px}
+.photo{width:100%;border-radius:16px;margin-top:12px;opacity:.85}
+.final{font-size:27px!important}
+.signature{font-size:23px!important;color:#ffb2d5}
+.floating{position:absolute;animation:float 6s linear forwards;font-size:22px;pointer-events:none}
+@keyframes float{from{transform:translateY(30px) scale(.7);opacity:0}15%{opacity:1}to{transform:translateY(-100vh) rotate(30deg);opacity:0}}
+.music{position:fixed;right:14px;top:14px;z-index:9;border:1px solid #ffffff33;background:#ffffff12;color:#fff;border-radius:999px;padding:9px 12px;backdrop-filter:blur(8px)}
+.small{opacity:.65;font-size:13px;margin-top:18px}
+</style>
+</head>
+<body>
+<button class="music" id="musicBtn" aria-label="Ativar música">🔈 Música</button>
+<div class="screen">
+<div class="bg"></div><div class="stars" id="stars"></div><div class="hearts" id="hearts"></div>
+<div class="card">
+  <div id="intro">
+    <h1>Um presente para Geicci 💗</h1>
+    <div class="subtitle">Feito com muito carinho pelo Nadson</div>
+    <div class="gift-area">
+      <div class="gift" id="gift" role="button" tabindex="0" aria-label="Abrir presente">
+        <div class="lid"></div><div class="box"></div><div class="ribbon"></div>
+        <div class="tag">Para: Geicci ♡</div>
+      </div>
+    </div>
+    <div class="tap">👆 Toque na caixa para abrir</div>
+  </div>
+
+  <div id="content" class="hidden">
+    <div class="message" id="message"></div>
+  </div>
+</div>
+</div>
+
+<script>
+const messages = [
+  {html:`<div class="tulips">🌷🌷🌷🌷🌷</div>
+  <p>Esse presente não é algo que você pode segurar nas mãos...</p>
+  <p>Mas é algo que eu queria muito te entregar. 💗</p>`},
+  {html:`<p>Você é uma pessoa <b>muito especial</b> para mim.</p>
+  <p>Talvez eu nem diga isso sempre, mas sou muito feliz por ter você na minha vida. 🌷</p>`},
+  {html:`<p>Você faz a diferença, mesmo sem perceber.</p>
+  <p>É aquela amiga que ouve, apoia, incentiva e faz tudo ficar mais leve. ✨</p>`},
+  {html:`<div class="tulips">🌷💗🌷</div>
+  <p>Que nunca faltem na sua vida:</p>
+  <p>🌷 Paz<br>🌷 Sorrisos<br>🌷 Conquistas<br>🌷 Amigos de verdade<br>🌷 Motivos para ser feliz</p>`},
+  {html:`<p>Que seus sonhos se realizem, que seus planos deem certo e que você continue sendo essa pessoa incrível que ilumina a vida de quem está ao seu redor. ✨</p>`},
+  {html:`<p class="final">Você é muito especial, Geicci! 💗</p>
+  <p>Obrigado por existir e por fazer parte da minha vida.</p>
+  <p class="signature">Com carinho,<br><b>Nadson</b> 🌷</p>
+  <p>Amizade também é um presente. 🎁❤️</p>`}
+];
+let i=0;
+const gift=document.getElementById('gift'), intro=document.getElementById('intro'), content=document.getElementById('content'), msg=document.getElementById('message');
+
+function floatHearts(){
+  for(let n=0;n<12;n++){
+    const e=document.createElement('div'); e.className='floating';
+    e.textContent=['♡','♥','✦','🌷'][Math.floor(Math.random()*4)];
+    e.style.left=(10+Math.random()*80)+'%'; e.style.bottom=(-30-Math.random()*80)+'px';
+    e.style.animationDuration=(4+Math.random()*4)+'s';
+    document.getElementById('hearts').appendChild(e);
+    setTimeout(()=>e.remove(),8500);
+  }
+}
+function show(){
+  msg.innerHTML=messages[i].html+`<div class="progress">${i+1} de ${messages.length}</div>`;
+  if(i<messages.length-1){
+    msg.innerHTML += `<button class="next" onclick="nextMessage()">Continuar ✨</button>`;
+  } else {
+    msg.innerHTML += `<button class="next" onclick="restart()">Ver novamente 🎁</button>`;
+  }
+  floatHearts();
+}
+function openGift(){
+  if(!intro.classList.contains('hidden')){
+    gift.classList.add('open');
+    setTimeout(()=>{intro.classList.add('hidden');content.classList.remove('hidden');show();},850);
+  }
+}
+function nextMessage(){i++;show()}
+function restart(){i=0;content.classList.add('hidden');intro.classList.remove('hidden');gift.classList.remove('open')}
+gift.addEventListener('click',openGift);
+gift.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openGift()}});
+
+for(let n=0;n<45;n++){
+ const s=document.createElement('div');s.className='star';
+ s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';
+ s.style.animationDelay=Math.random()*3+'s';document.getElementById('stars').appendChild(s);
+}
+
+// Música simples gerada pelo navegador (sem arquivo externo)
+let audioCtx=null, playing=false, timer=null;
+function startMusic(){
+  if(!audioCtx) audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+  if(playing)return; playing=true;
+  const notes=[261.63,329.63,392,329.63,293.66,349.23,440,349.23];
+  let k=0;
+  function tick(){
+    if(!playing)return;
+    const o=audioCtx.createOscillator(), g=audioCtx.createGain();
+    o.type='sine';o.frequency.value=notes[k++%notes.length];
+    g.gain.setValueAtTime(.0001,audioCtx.currentTime);
+    g.gain.exponentialRampToValueAtTime(.035,audioCtx.currentTime+.04);
+    g.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+.7);
+    o.connect(g).connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+.75);
+    timer=setTimeout(tick,700);
+  } tick();
+}
+document.getElementById('musicBtn').onclick=()=>{startMusic();document.getElementById('musicBtn').textContent='🎵 Música ligada'};
+</script>
+</body>
+</html>
